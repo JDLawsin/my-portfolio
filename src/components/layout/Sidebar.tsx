@@ -1,7 +1,7 @@
 import useSectionStore from "@/hooks/useSectionStore";
 import { SECTIONS } from "@/utils/constants";
 import { scrollToView } from "@/utils/functions";
-import { Section } from "@/utils/interface/section";
+import { Section } from "@/utils/interface/interface";
 
 interface Props {
   activeIndex: number;
@@ -11,11 +11,11 @@ const Sidebar = ({ activeIndex }: Props) => {
   const refs = useSectionStore((state: any) => state.sectionRefs);
 
   return (
-    <aside className="bg-black float-right">
-      <nav className="flex flex-col p-3 w-20 h-screen">
+    <aside className="flex  fixed top-0 right-0 h-screen justify-center">
+      <nav className="flex flex-col p-3 w-12">
         <div className="m-auto space-y-4">
           <div className="flex justify-center">
-            <a className="font-semibold text-sm">LOGO</a>
+            <a className="font-semibold text-sm">L</a>
           </div>
           {SECTIONS.map((d: Section, index: number) => (
             <div className="flex justify-center" key={index}>

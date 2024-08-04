@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         vermicelles: "#e2bd78",
+        sandybrown: "#f0bf6c",
+        "grayish-blue": "#3D3E42",
         main: "#2A2A2A",
       },
     },

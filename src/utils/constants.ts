@@ -1,5 +1,5 @@
 import Portfolio from "@/components/section/Portfolio";
-import { Section } from "./interface/section";
+import { Section } from "./interface/interface";
 import About from "@/components/section/About";
 import Contact from "@/components/section/Contact";
 
