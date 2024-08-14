@@ -2,6 +2,8 @@ import { Portfolio } from "@/utils/interface/interface";
 import ImageWithFallback from "./ImageWithFallback";
 import ExpandableText from "./ExpandableText";
 import Badge from "./Badge";
+import FloatingIcon from "./FloatingIcon";
+import QuestionMarkIcon from "./icons/QuestionMarkIcon";
 
 interface Props {
   projects: Portfolio[];
@@ -18,6 +20,9 @@ const Masonry = ({ projects }: Props) => {
               i == 0 ? "mt-0" : "mt-4"
             } overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out`}
           >
+            <FloatingIcon position="top-right">
+              <QuestionMarkIcon className="size-6 cursor-pointer" />
+            </FloatingIcon>
             <ImageWithFallback
               src={d.image}
               alt="Card Image"
