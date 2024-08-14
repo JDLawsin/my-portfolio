@@ -21,7 +21,7 @@ export default function RootLayout({
   const [root, setRoot] = useState<Nullable<Element>>(null);
   const [currentActiveIndex] = useScrollspy(elements, {
     root: root,
-    offset: 500,
+    offset: 700,
   });
   const inputRef = SECTIONS.map(() => useRef(null));
   const setSectionRefs = useSectionStore((state: any) => state.setSectionRefs);

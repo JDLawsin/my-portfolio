@@ -1,16 +1,16 @@
 import { Skill } from "@/utils/interface/interface";
 import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
 
 const SkillItem = ({ name, image }: Skill) => (
-  <div className="flex flex-col bg-grayish-blue justify-center items-center rounded-lg h-44 p-5">
-    <div className="relative w-16 h-16 md:w-24 md:h-24">
-      <Image
-        src={image}
-        alt={name}
-        layout="fill"
-        className="rounded-full object-cover"
-      />
-    </div>
+  <div className="flex flex-col bg-grayish-blue justify-center items-center rounded-lg h-44 p-5 hover:bg-vermicelles">
+    <ImageWithFallback
+      src={image}
+      alt={name}
+      width={500}
+      height={500}
+      className="aspect-square object-cover w-12 h-12 md:w-12 md:h-12"
+    />
     <div className="mt-2">
       <span className="text-xs font-bold md:text-sm">{name}</span>
     </div>

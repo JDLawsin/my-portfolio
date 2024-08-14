@@ -1,33 +1,36 @@
+import contentfulClient from "@/lib/contentful";
 import Timeline from "./Timeline";
+import { Event } from "@/utils/interface/interface";
 
-const sampleData = [
-  {
-    date: "Feb 2022",
-    title: "Title 1",
-    company: "Company 1",
-    description: "Lorem ipsum asdagdafdasdasdda",
-  },
-  {
-    date: "Feb 2022",
-    title: "Title 1",
-    company: "Company 1",
-    description: "Lorem ipsum asdagdafdasdasdda",
-  },
-  {
-    date: "Feb 2022",
-    title: "Title 1",
-    company: "Company 1",
-    description: "Lorem ipsum asdagdafdasdasdda",
-  },
-];
+const getExperiences = async () => {
+  const res = await contentfulClient.getEntries({
+    content_type: "experience",
+    order: ["sys.createdAt"],
+  });
 
-const MyExperience = () => {
+  const experiences: Event[] = res.items.map((d: any) => {
+    const experience: Event = {
+      title: d.fields.title?.toString() || "",
+      description: d.fields.description || "",
+      date: d.fields.date?.toString() || "",
+      company: d.fields.company?.toString() || "",
+    };
+
+    return experience;
+  });
+
+  return experiences;
+};
+
+const MyExperience = async () => {
+  const experiences: Event[] = await getExperiences();
+
   return (
-    <div className="relative mt-5 py-5 px-10 md:px-[30vw] bg-grayish-blue">
-      <h1 className="font-bold text-base -top-3.5 md:text-3xl absolute md:-top-5 md:left-[350px]">
+    <div className="mt-10 py-5 px-10 md:px-[30vw] bg-grayish-blue flex flex-col space-y-6 justify-center">
+      <h1 className="font-bold text-base md:text-3xl text-center">
         Experience
       </h1>
-      <Timeline events={sampleData} />
+      <Timeline events={experiences} />
     </div>
   );
 };

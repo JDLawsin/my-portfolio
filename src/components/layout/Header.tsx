@@ -15,7 +15,7 @@ const Header = ({ activeIndex }: Props) => {
       <nav className="flex flex-row p-10 items-center justify-between h-20 md:px-[20vw]">
         {/* Logo */}
         <div>
-          <a className="font-bold text-xl text-vermicelles">LOGO</a>
+          <a className="font-bold text-xl text-vermicelles">JD</a>
         </div>
         {/* Menu */}
         <div className="space-x-4">

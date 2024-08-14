@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
 
 const MyIntroduction = () => {
   return (
@@ -16,8 +16,8 @@ const MyIntroduction = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-1 justify-center items-center order-1 mt-5 md:order-2 md:justify-start">
-        <Image
+      <div className="flex flex-1 justify-center items-center order-1 mt-5 md:order-2 md:justify-start px-10">
+        <ImageWithFallback
           src="/avatar/me.png"
           alt="me as a 2d character"
           width={1080}
