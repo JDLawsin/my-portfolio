@@ -14,7 +14,7 @@ const options: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return (
-        <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
           {children}
         </p>
       );
@@ -32,9 +32,9 @@ const Timeline = ({ events }: Props) => {
         >
           <span className="absolute flex items-center justify-center w-6 h-6 bg-sandybrown rounded-full -start-3 shadow-[0px_0px_30px_#FFA400]"></span>
           <div className="flex items-center mb-1">
-            <span className="text-base">
+            <span className="text-sm md:text-lg">
               {`${d.title} at`}{" "}
-              <span className="text-lg font-bold text-vermicelles">
+              <span className="text-base md:text-lg font-bold text-vermicelles">
                 {d.company}
               </span>
             </span>

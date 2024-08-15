@@ -37,9 +37,9 @@ const Masonry = ({ projects }: Props) => {
                     <Badge key={index} text={d} />
                   ))}
               </div>
-              <h3 className="text-xl font-bold">{d.title}</h3>
+              <h3 className="text-sm md:text-xl font-bold">{d.title}</h3>
               <ExpandableText
-                className="w-full text-sm text-muted-foreground text-justify tracking-tight"
+                className="w-full text-xs text-left md:text-sm"
                 length={80}
               >
                 {d.description}

@@ -62,7 +62,7 @@ const Contact = () => {
             <TelegramIcon className="size-8 hover:stroke-vermicelles hover:fill-vermicelles" />
           </Link>
           <Link
-            href={"www.linkedin.com/in/joshua-daniel-lawsin-21a826208"}
+            href={"https://www.linkedin.com/in/joshua-daniel-lawsin-21a826208"}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -80,7 +80,7 @@ const Contact = () => {
             alt="my pixie gurl"
             width={200}
             height={200}
-            className="aspect-square object-cover rounded-full my-3"
+            className="aspect-square object-cover rounded-full my-3 w-[5em] h-[5em] md:w-[10em] md:h-[10em]"
           />
           <span className="text-vermicelles text-base md:text-2xl">
             {"Visiting!"}
@@ -91,28 +91,28 @@ const Contact = () => {
           alt="my skye gurl"
           width={200}
           height={200}
-          className="aspect-square object-cover absolute -top-11 left-0 rotate-180 z-0"
+          className="aspect-square object-cover absolute -top-11 left-0 rotate-180 z-0 w-[10em] h-[10em] "
         />
         <Image
           src="/avatar/phanter.png"
           alt="my phanter boi"
           width={200}
           height={200}
-          className="aspect-square object-cover absolute -top-11 right-0 rotate-180 z-0"
+          className="aspect-square object-cover absolute -top-11 right-0 rotate-180 z-0 w-[10em] h-[10em]"
         />
         <Image
           src="/avatar/choco.png"
           alt="my choco boi"
           width={200}
           height={200}
-          className="aspect-square object-cover absolute bottom-0 right-0"
+          className="aspect-square object-cover absolute bottom-0 right-0 w-[10em] h-[10em]"
         />
         <Image
           src="/avatar/mavis.png"
           alt="my mavis gurl"
           width={200}
           height={200}
-          className="aspect-square object-cover absolute bottom-0 left-0"
+          className="aspect-square object-cover absolute bottom-0 left-0 w-[10em] h-[10em]"
         />
       </div>
     </div>

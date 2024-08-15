@@ -14,7 +14,7 @@ const Sidebar = ({ activeIndex }: Props) => {
   const refs = useSectionStore((state: any) => state.sectionRefs);
 
   return (
-    <aside className="flex fixed top-0 right-0 h-screen justify-center">
+    <aside className="flex fixed top-0 right-0 h-screen justify-center z-50">
       <nav className="flex flex-col p-3 w-12">
         <div className="m-auto space-y-4">
           <div className="flex justify-center">
