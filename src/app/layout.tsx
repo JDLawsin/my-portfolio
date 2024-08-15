@@ -42,11 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" id="#main">
       <body className={inter.className}>
-        {isDesktop ? (
-          <Header activeIndex={currentActiveIndex} />
-        ) : (
-          <Sidebar activeIndex={currentActiveIndex} />
-        )}
+        {/* explicitly comparing the value since useMediaQuery returns unknown */}
+        {isDesktop == true && <Header activeIndex={currentActiveIndex} />}
+        {isDesktop == false && <Sidebar activeIndex={currentActiveIndex} />}
         {children}
       </body>
     </html>
