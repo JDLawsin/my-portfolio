@@ -2,7 +2,7 @@ import ImageWithFallback from "./ImageWithFallback";
 
 const MyIntroduction = () => {
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row mt-5 px-10 md:px-[20vw]">
       <div className="flex flex-1 order-2 justify-center lg:justify-end items-center mt-5 lg:order-1">
         <div>
           <p className="text-xs md:text-sm lg:text-lg text-center">
