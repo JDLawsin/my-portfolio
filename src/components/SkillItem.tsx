@@ -1,5 +1,4 @@
 import { Skill } from "@/utils/interface/interface";
-import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
 
 const SkillItem = ({ name, image }: Skill) => (

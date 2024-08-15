@@ -1,15 +1,15 @@
 "use client";
-import useDetectResize from "@/hooks/useDetectResize";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import useSectionStore from "@/hooks/useSectionStore";
 import { SECTIONS } from "@/utils/constants";
 import { Section } from "@/utils/interface/interface";
 
 const App = () => {
   const sectionRefs = useSectionStore((state: any) => state.sectionRefs);
-  const { isMobile } = useDetectResize();
+  const isDesktop = useMediaQuery("(min-width: 640px)");
 
   return (
-    <main className={`${isMobile ? "" : "mt-[80px]"}`}>
+    <main className={`${isDesktop ? "mt-[80px]" : ""}`}>
       <article>
         {SECTIONS.map((d: Section, i: number) => (
           <section key={d.name} id={d.name} ref={sectionRefs[i]}>

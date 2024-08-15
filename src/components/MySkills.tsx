@@ -1,6 +1,7 @@
 import { Skill } from "@/utils/interface/interface";
 import SkillItem from "./SkillItem";
 import contentfulClient from "@/lib/contentful";
+import { useEffect, useState } from "react";
 
 interface SkillItemListProp {
   skills: Skill[];
@@ -10,26 +11,30 @@ const SkillItemList = ({ skills }: SkillItemListProp) =>
     <SkillItem name={d.name} image={d.image} key={i} />
   ));
 
-const getSkills = async () => {
-  const res = await contentfulClient.getEntries({
-    content_type: "skill",
-    order: ["sys.createdAt"],
-  });
+const MySkills = () => {
+  const [skills, setSkills] = useState<Skill[]>([]);
 
-  const skills: Skill[] = res.items.map((d: any, i) => {
-    const skill: Skill = {
-      name: d.fields.name?.toString() || "",
-      image: "https:" + d.fields.image.fields.file.url,
-    };
+  const getSkills = async () => {
+    const res = await contentfulClient.getEntries({
+      content_type: "skill",
+      order: ["sys.createdAt"],
+    });
 
-    return skill;
-  });
+    const skills: Skill[] = res.items.map((d: any, i) => {
+      const skill: Skill = {
+        name: d.fields.name?.toString() || "",
+        image: "https:" + d.fields.image.fields.file.url,
+      };
 
-  return skills;
-};
+      return skill;
+    });
 
-const MySkills = async () => {
-  const skills: Skill[] = await getSkills();
+    setSkills(skills);
+  };
+
+  useEffect(() => {
+    getSkills();
+  }, []);
 
   return (
     <div className="mt-5 px-10 md:px-[20vw]">

@@ -1,29 +1,34 @@
 import contentfulClient from "@/lib/contentful";
 import Masonry from "./Masonry";
 import { Portfolio } from "@/utils/interface/interface";
+import { useEffect, useState } from "react";
 
-const getProjects = async () => {
-  const res = await contentfulClient.getEntries({
-    content_type: "project",
-    order: ["sys.createdAt"],
-  });
+const MyProjects = () => {
+  const [projects, setProjects] = useState<Portfolio[]>([]);
 
-  const projects: Portfolio[] = res.items.map((d: any) => {
-    const project: Portfolio = {
-      title: d.fields.projectName?.toString() || "",
-      description: d.fields.details?.toString() || "",
-      image: "image" in d.fields ? d.fields.image?.toString() || "" : "",
-      techs: d.fields.tech || [],
-    };
+  const getProjects = async () => {
+    const res = await contentfulClient.getEntries({
+      content_type: "project",
+      order: ["sys.createdAt"],
+    });
 
-    return project;
-  });
+    const projects: Portfolio[] = res.items.map((d: any) => {
+      const project: Portfolio = {
+        title: d.fields.projectName?.toString() || "",
+        description: d.fields.details?.toString() || "",
+        image: "image" in d.fields ? d.fields.image?.toString() || "" : "",
+        techs: d.fields.tech || [],
+      };
 
-  return projects;
-};
+      return project;
+    });
 
-const MyProjects = async () => {
-  const projects: Portfolio[] = await getProjects();
+    setProjects(projects);
+  };
+
+  useEffect(() => {
+    getProjects();
+  }, []);
 
   return (
     <div className="mt-5 px-10 md:px-[20vw]">

@@ -2,12 +2,12 @@
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
-import useDetectResize from "@/hooks/useDetectResize";
 import { useScrollspy } from "@/hooks/useScrollSpy";
 import { useEffect, useRef, useState } from "react";
 import { SECTIONS } from "@/utils/constants";
 import Sidebar from "@/components/layout/Sidebar";
 import useSectionStore from "@/hooks/useSectionStore";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { isMobile, isDesktop } = useDetectResize();
+  const isDesktop = useMediaQuery("(min-width: 640px)");
   const [elements, setElements] = useState<Element[]>([]);
   const [root, setRoot] = useState<Nullable<Element>>(null);
   const [currentActiveIndex] = useScrollspy(elements, {
@@ -42,8 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en" id="#main">
       <body className={inter.className}>
-        {isDesktop && <Header activeIndex={currentActiveIndex} />}
-        {isMobile && <Sidebar activeIndex={currentActiveIndex} />}
+        {isDesktop ? (
+          <Header activeIndex={currentActiveIndex} />
+        ) : (
+          <Sidebar activeIndex={currentActiveIndex} />
+        )}
         {children}
       </body>
     </html>
