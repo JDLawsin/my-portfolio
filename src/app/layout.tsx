@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Roboto } from "next/font/google";
 import Header from "@/components/layout/Header";
 import { useScrollspy } from "@/hooks/useScrollSpy";
-import { useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { SECTIONS } from "@/utils/constants";
 import Sidebar from "@/components/layout/Sidebar";
 import useSectionStore from "@/hooks/useSectionStore";
@@ -23,7 +23,7 @@ export default function RootLayout({
     root: root,
     offset: 700,
   });
-  const inputRef = SECTIONS.map(() => useRef(null));
+  const inputRef = SECTIONS.map(() => createRef());
   const setSectionRefs = useSectionStore((state: any) => state.setSectionRefs);
 
   useEffect(() => {
