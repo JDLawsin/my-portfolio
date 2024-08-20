@@ -8,7 +8,7 @@ export const useScrollspy = (
   }
 ) => {
   const [currentIntersectingElementIndex, setCurrentIntersectingElementIndex] =
-    useState(-1);
+    useState(0);
 
   const rootMargin = `-${(options && options.offset) || 0}px 0px 0px 0px`;
 
