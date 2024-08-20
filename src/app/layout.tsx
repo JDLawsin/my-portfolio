@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Header from "@/components/layout/Header";
 import { useScrollspy } from "@/hooks/useScrollSpy";
 import { useEffect, useRef, useState } from "react";
@@ -9,7 +9,7 @@ import Sidebar from "@/components/layout/Sidebar";
 import useSectionStore from "@/hooks/useSectionStore";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ subsets: ["cyrillic"], weight: "300" });
 
 export default function RootLayout({
   children,
@@ -41,7 +41,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" id="#main">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         {/* explicitly comparing the value since useMediaQuery returns unknown */}
         {isDesktop == true && <Header activeIndex={currentActiveIndex} />}
         {isDesktop == false && <Sidebar activeIndex={currentActiveIndex} />}

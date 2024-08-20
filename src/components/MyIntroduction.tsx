@@ -1,3 +1,4 @@
+import DownloadIcon from "./icons/DownloadIcon";
 import ImageWithFallback from "./ImageWithFallback";
 
 const MyIntroduction = () => {
@@ -14,6 +15,17 @@ const MyIntroduction = () => {
           <p className="font-bold text-sm md:text-base lg:text-lg text-center">
             {"Web Developer (Frontend and Backend)"}
           </p>
+          <div className="flex justify-center items-center p-3">
+            <a
+              type="button"
+              className="flex items-center rounded bg-vermicelles px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white cursor-pointer"
+              href="/resume/resume.pdf"
+              download="resume"
+            >
+              <DownloadIcon />
+              {"Download Resume"}
+            </a>
+          </div>
         </div>
       </div>
       <div className="flex flex-1 justify-center items-center order-1 mt-5 lg:order-2 lg:justify-start px-10">
