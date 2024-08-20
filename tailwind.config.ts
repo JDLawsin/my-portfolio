@@ -8,12 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        vermicelles: "#e2bd78",
+        sandybrown: "#f0bf6c",
+        "grayish-blue": "#3D3E42",
+        main: "#2A2A2A",
       },
     },
+  },
+  variants: {
+    fill: ["hover"],
   },
   plugins: [],
 };
