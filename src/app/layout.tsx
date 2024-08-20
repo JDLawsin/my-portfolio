@@ -1,51 +1,30 @@
-"use client";
 import "@/styles/globals.css";
 import { Roboto } from "next/font/google";
-import Header from "@/components/layout/Header";
-import { useScrollspy } from "@/hooks/useScrollSpy";
-import { createRef, useEffect, useRef, useState } from "react";
-import { SECTIONS } from "@/utils/constants";
-import Sidebar from "@/components/layout/Sidebar";
-import useSectionStore from "@/hooks/useSectionStore";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import type { Metadata } from "next";
+import Client from "@/components/Client";
 
 const roboto = Roboto({ subsets: ["cyrillic"], weight: "300" });
+
+export const metadata: Metadata = {
+  title: "Joshua Daniel Lawsin",
+  description: "Joshua Daniel Lawsin's Portfolio",
+  icons: {
+    icon: ["/favicon/favicon.ico?v=4"],
+    apple: ["/favicon/apple-touch-icon.png?v=4"],
+    shortcut: ["/favicon/apple-touch-icon.png"],
+  },
+  manifest: "/favicon/site.webmanifest",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDesktop = useMediaQuery("(min-width: 640px)");
-  const [elements, setElements] = useState<Element[]>([]);
-  const [root, setRoot] = useState<Nullable<Element>>(null);
-  const [currentActiveIndex] = useScrollspy(elements, {
-    root: root,
-    offset: isDesktop ? 800 : 80,
-  });
-  const inputRef = SECTIONS.map(() => createRef());
-  const setSectionRefs = useSectionStore((state: any) => state.setSectionRefs);
-
-  useEffect(() => {
-    const widgetElements = SECTIONS.map(
-      (d) => document.querySelector(`section[id="${d.name}"]`)!
-    );
-
-    setRoot(document.querySelector("#main"));
-    setElements(widgetElements);
-  }, []);
-
-  useEffect(() => {
-    setSectionRefs(inputRef);
-  }, []);
-
   return (
     <html lang="en" id="#main">
       <body className={roboto.className}>
-        {/* explicitly comparing the value since useMediaQuery returns unknown */}
-        {isDesktop == true && <Header activeIndex={currentActiveIndex} />}
-        {isDesktop == false && <Sidebar activeIndex={currentActiveIndex} />}
-        {children}
+        <Client>{children}</Client>
       </body>
     </html>
   );
