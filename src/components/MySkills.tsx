@@ -17,7 +17,7 @@ const MySkills = () => {
   const getSkills = async () => {
     const res = await contentfulClient.getEntries({
       content_type: "skill",
-      order: ["sys.createdAt"],
+      order: ["sys.updatedAt"],
     });
 
     const skills: Skill[] = res.items.map((d: any, i) => {
