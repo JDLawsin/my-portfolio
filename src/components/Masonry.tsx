@@ -12,7 +12,7 @@ interface Props {
 const Masonry = ({ projects }: Props) => {
   return (
     <div className="container mx-auto mt-8">
-      <div className="gap-4 columns-2 md:columns-3">
+      <div className="md:gap-4 md:columns-3">
         {projects.map((d: Portfolio, i: number) => (
           <div
             key={i}
