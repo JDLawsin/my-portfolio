@@ -19,8 +19,8 @@ const MyIntroduction = () => {
             <a
               type="button"
               className="flex items-center rounded bg-vermicelles px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white cursor-pointer"
-              href="/resume/resume.pdf"
-              download="resume"
+              href="/resume/Joshua_Daniel_Lawsin_Resume.pdf"
+              download="Joshua_Daniel_Lawsin_Resume"
             >
               <DownloadIcon />
               {"Download Resume"}
