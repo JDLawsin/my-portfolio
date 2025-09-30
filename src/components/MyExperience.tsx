@@ -9,7 +9,7 @@ const MyExperience = () => {
   const getExperiences = async () => {
     const res = await contentfulClient.getEntries({
       content_type: "experience",
-      order: ["sys.createdAt"],
+      order: ["-sys.updatedAt"],
     });
 
     const experiences: Event[] = res.items.map((d: any) => {
