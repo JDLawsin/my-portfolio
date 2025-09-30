@@ -9,14 +9,16 @@ const MyProjects = () => {
   const getProjects = async () => {
     const res = await contentfulClient.getEntries({
       content_type: "project",
-      order: ["sys.createdAt"],
+      order: ["-sys.createdAt"],
     });
 
     const projects: Portfolio[] = res.items.map((d: any) => {
       const project: Portfolio = {
         title: d.fields.projectName?.toString() || "",
         description: d.fields.details?.toString() || "",
-        image: "image" in d.fields ? d.fields.image?.toString() || "" : "",
+        image: d.fields.image?.fields?.file?.url
+          ? `https:${d.fields.image.fields.file.url}`
+          : "",
         techs: d.fields.tech || [],
       };
 
